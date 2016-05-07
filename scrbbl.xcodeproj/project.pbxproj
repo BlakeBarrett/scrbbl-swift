@@ -12,6 +12,7 @@
 		2513D2C41CDD40D000B359F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2513D2C21CDD40D000B359F9 /* Main.storyboard */; };
 		2513D2C61CDD40D100B359F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2513D2C51CDD40D000B359F9 /* Assets.xcassets */; };
 		2513D2C91CDD40D100B359F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2513D2C71CDD40D100B359F9 /* LaunchScreen.storyboard */; };
+		2513D2D11CDE9BE200B359F9 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2513D2D01CDE9BE200B359F9 /* Brush.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2513D2C51CDD40D000B359F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2513D2C81CDD40D100B359F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2513D2CA1CDD40D100B359F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2513D2D01CDE9BE200B359F9 /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				2513D2BE1CDD40D000B359F9 /* AppDelegate.swift */,
+				2513D2D01CDE9BE200B359F9 /* Brush.swift */,
 				2513D2C01CDD40D000B359F9 /* ViewController.swift */,
 				2513D2C21CDD40D000B359F9 /* Main.storyboard */,
 				2513D2C51CDD40D000B359F9 /* Assets.xcassets */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2513D2D11CDE9BE200B359F9 /* Brush.swift in Sources */,
 				2513D2C11CDD40D000B359F9 /* ViewController.swift in Sources */,
 				2513D2BF1CDD40D000B359F9 /* AppDelegate.swift in Sources */,
 			);
