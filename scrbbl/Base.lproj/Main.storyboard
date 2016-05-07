@@ -28,15 +28,21 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <barButtonItem title="Erase" id="xze-39-MhJ">
-                                        <connections>
-                                            <action selector="onEraseClicked:" destination="BYZ-38-t0r" id="bTX-ue-Zxr"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="w0T-aR-pvX"/>
                                     <barButtonItem systemItem="action" id="aGf-A3-Gqx">
                                         <connections>
                                             <action selector="onActionClicked:" destination="BYZ-38-t0r" id="oyf-QG-bcC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="l39-vG-2qN"/>
+                                    <barButtonItem systemItem="camera" id="zPX-LT-VgX">
+                                        <connections>
+                                            <action selector="onCameraClicked:" destination="BYZ-38-t0r" id="bUY-7Z-2Ax"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VQd-GJ-IX5"/>
+                                    <barButtonItem systemItem="trash" id="xze-39-MhJ">
+                                        <connections>
+                                            <action selector="onTrashClicked:" destination="BYZ-38-t0r" id="mdS-S4-jRA"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreGraphics
+import MobileCoreServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
@@ -121,9 +122,44 @@ class ViewController: UIViewController {
         return image
     }
     
+    func fit(image:UIImage, inSize: CGSize) -> UIImage {
+        let size = inSize
+        let originalAspectRatio = image.size.width / image.size.height
+        
+        let rect: CGRect
+        let width, height: CGFloat
+        //      width > height
+        if (originalAspectRatio > 1) {
+            // this appears to work
+            width = size.width
+            height = size.width / originalAspectRatio
+            rect = CGRect(
+                x: 0, y: (size.height - height) / 2,
+                width: width,
+                height: height
+            )
+        } else {
+            // while this does not
+            width = size.width / originalAspectRatio
+            height = size.width
+            rect = CGRect(
+                x: 0, y: (size.height - height) / 2,
+                width: width,
+                height: height
+            )
+        }
+        
+        UIGraphicsBeginImageContext(size)
+        image.drawInRect(rect)
+        
+        let rasterized = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return rasterized
+    }
+    
     // MARK: - Button Bar Item Click Handlers
     
-    @IBAction func onEraseClicked(sender: UIBarButtonItem) {
+    @IBAction func onTrashClicked(sender: UIBarButtonItem) {
         self.tempImageView.image = nil
         self.mainImageView.image = nil
     }
@@ -144,5 +180,31 @@ class ViewController: UIViewController {
             presentViewController(activity, animated: true, completion: nil)
         }
     }
-
+    
+    @IBAction func onCameraClicked(sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.mediaTypes = [kUTTypeImage as String]
+        presentViewController(imagePicker, animated: true) { () -> Void in
+            // no-op
+        }
+    }
+    
+    // MARK: - Image Picker Controller Delegate Stuff
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        let image = fit((info[UIImagePickerControllerOriginalImage] as! UIImage), inSize: self.mainImageView.frame.size)
+        self.mainImageView.image = mergeImages(image, second: self.mainImageView.image)
+        
+        picker.dismissViewControllerAnimated(true) { () -> Void in
+            
+        }
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true) { () -> Void in
+            
+        }
+    }
 }
