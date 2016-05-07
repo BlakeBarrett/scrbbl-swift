@@ -127,14 +127,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let originalAspectRatio = image.size.width / image.size.height
         
         let rect: CGRect
-        let width, height: CGFloat
+        let width, height, x, y: CGFloat
         //      width > height
         if (originalAspectRatio > 1) {
             // this appears to work
             width = size.width
             height = size.width / originalAspectRatio
+            x = 0
+            y = (size.height - height) / 2
             rect = CGRect(
-                x: 0, y: (size.height - height) / 2,
+                x: x, y: y,
                 width: width,
                 height: height
             )
@@ -142,8 +144,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // while this does not
             width = size.height * originalAspectRatio
             height = size.height
+            x = (size.width - width) / 2
+            y = 0
             rect = CGRect(
-                x: 0, y: (size.height - height) / 2,
+                x: x, y: y,
                 width: width,
                 height: height
             )
