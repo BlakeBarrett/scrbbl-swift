@@ -20,6 +20,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -164,8 +168,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - Button Bar Item Click Handlers
     
     @IBAction func onTrashClicked(sender: UIBarButtonItem) {
-        self.tempImageView.image = nil
-        self.mainImageView.image = nil
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let destroyAction = UIAlertAction(title: "Reset", style: .Destructive) { (action) in
+            self.tempImageView.image = nil
+            self.mainImageView.image = nil
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            // no-op
+        }
+        
+        alertController.addAction(destroyAction)
+        alertController.addAction(cancelAction)
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        
+        self.presentViewController(alertController, animated: true) {
+            // ...
+        }
     }
     
     @IBAction func onActionClicked(sender: UIBarButtonItem) {

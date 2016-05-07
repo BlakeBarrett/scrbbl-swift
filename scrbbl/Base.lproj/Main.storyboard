@@ -9,6 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="scrbbl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -19,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rK7-hJ-ANu" userLabel="Main Image View">
-                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jQh-Cu-CFx" userLabel="Temp Image View">
-                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2g-Lv-Udj">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -34,11 +35,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="l39-vG-2qN"/>
-                                    <barButtonItem systemItem="camera" id="zPX-LT-VgX">
-                                        <connections>
-                                            <action selector="onCameraClicked:" destination="BYZ-38-t0r" id="bUY-7Z-2Ax"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem systemItem="compose" id="RYB-Nq-NfP"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VQd-GJ-IX5"/>
                                     <barButtonItem systemItem="trash" id="xze-39-MhJ">
                                         <connections>
@@ -47,19 +44,36 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Se-mJ-x7P">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="flexibleSpace" id="87f-Ky-zNp"/>
+                                    <barButtonItem title="scrbbl" style="done" id="F7k-8w-jhW"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="M8v-Je-0k6"/>
+                                    <barButtonItem systemItem="camera" id="zPX-LT-VgX">
+                                        <connections>
+                                            <action selector="onCameraClicked:" destination="BYZ-38-t0r" id="bUY-7Z-2Ax"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="fixedSpace" id="yKf-r7-atK"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="T2g-Lv-Udj" firstAttribute="top" secondItem="jQh-Cu-CFx" secondAttribute="bottom" id="5Fa-YU-MBo"/>
-                            <constraint firstItem="jQh-Cu-CFx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="799-hq-akQ"/>
-                            <constraint firstItem="rK7-hJ-ANu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Aqs-As-Wbl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="T2g-Lv-Udj" secondAttribute="bottom" id="Nul-9S-hif"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jQh-Cu-CFx" secondAttribute="trailing" constant="-20" id="PIe-0Z-vSY"/>
                             <constraint firstItem="rK7-hJ-ANu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="QDD-cd-ZQp"/>
+                            <constraint firstItem="7Se-mJ-x7P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="RvY-lp-oKq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rK7-hJ-ANu" secondAttribute="trailing" constant="-20" id="SIe-FU-tgQ"/>
+                            <constraint firstItem="7Se-mJ-x7P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SJc-tc-IGK"/>
+                            <constraint firstItem="rK7-hJ-ANu" firstAttribute="top" secondItem="7Se-mJ-x7P" secondAttribute="top" id="T2e-Pc-2L2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="T2g-Lv-Udj" secondAttribute="trailing" constant="-20" id="cja-dQ-DI6"/>
                             <constraint firstItem="jQh-Cu-CFx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="dkG-wc-I5O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Se-mJ-x7P" secondAttribute="trailing" constant="-20" id="fdo-Aa-sBe"/>
                             <constraint firstItem="T2g-Lv-Udj" firstAttribute="top" secondItem="rK7-hJ-ANu" secondAttribute="bottom" id="jZT-Ew-6Cx"/>
+                            <constraint firstItem="jQh-Cu-CFx" firstAttribute="top" secondItem="7Se-mJ-x7P" secondAttribute="top" id="ojY-0M-wO0"/>
                             <constraint firstItem="T2g-Lv-Udj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="yHp-ES-nqC"/>
                         </constraints>
                     </view>
@@ -68,7 +82,6 @@
                         <outlet property="tempImageView" destination="jQh-Cu-CFx" id="M7g-xO-1Cd"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="301" y="389"/>
         </scene>
