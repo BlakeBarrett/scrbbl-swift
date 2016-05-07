@@ -140,8 +140,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             )
         } else {
             // while this does not
-            width = size.width / originalAspectRatio
-            height = size.width
+            width = size.height * originalAspectRatio
+            height = size.height
             rect = CGRect(
                 x: 0, y: (size.height - height) / 2,
                 width: width,
