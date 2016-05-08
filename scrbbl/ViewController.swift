@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 import MobileCoreServices
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, BrushReceiver {
 
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
@@ -27,6 +27,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.destinationViewController is BrushEditorViewController) {
+            let editor = (segue.destinationViewController as! BrushEditorViewController)
+            editor.delegate = self
+            editor.brush = self.brush
+        }
     }
     
     // MARK: - Touch Interaction Code
@@ -64,6 +72,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - Line Drawing Code
     var brush: Brush = Brush()
+    func setBrush(brush: Brush) {
+        self.brush = brush
+    }
+    
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint, inImageView: UIImageView, withBrush: Brush) {
         
         let brush = withBrush
@@ -228,4 +240,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }
     }
+}
+
+protocol BrushReceiver {
+    func setBrush(brush: Brush)
 }
