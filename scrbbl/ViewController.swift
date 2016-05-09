@@ -4,6 +4,7 @@
 //
 //  Created by Blake Barrett on 5/6/16.
 //  Copyright © 2016 Blake Barrett. All rights reserved.
+//  Started out following the tutorial here: https://www.raywenderlich.com/87899/make-simple-drawing-app-uikit-swift
 //
 
 import UIKit
@@ -53,7 +54,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         swiped = true
         if let touch = touches.first {
             let currentPoint = touch.locationInView(self.mainImageView)
-            drawLineFrom(lastPoint, toPoint: currentPoint, inImageView: self.tempImageView, withBrush: self.brush)
+            ViewController.drawLineFrom(lastPoint, toPoint: currentPoint, inImageView: self.tempImageView, withBrush: self.brush)
             
             // 7
             lastPoint = currentPoint
@@ -63,7 +64,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if !swiped {
             // draw a single point
-            drawLineFrom(lastPoint, toPoint: lastPoint, inImageView: self.tempImageView, withBrush: self.brush)
+            ViewController.drawLineFrom(lastPoint, toPoint: lastPoint, inImageView: self.tempImageView, withBrush: self.brush)
         }
         
         mainImageView.image = mergeImages(mainImageView.image, second: tempImageView.image)
@@ -76,7 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.brush = brush
     }
     
-    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint, inImageView: UIImageView, withBrush: Brush) {
+    class func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint, inImageView: UIImageView, withBrush: Brush) {
         
         let brush = withBrush
         
@@ -94,7 +95,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // 3
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextSetLineWidth(context, brush.width)
-        CGContextSetRGBStrokeColor(context, brush.red, brush.green, brush.blue, 1.0)
+        CGContextSetRGBStrokeColor(context, brush.red, brush.green, brush.blue, brush.alpha)
         CGContextSetBlendMode(context, CGBlendMode.Normal)
         
         // 4

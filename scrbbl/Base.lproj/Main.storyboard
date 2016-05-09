@@ -64,7 +64,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="T2g-Lv-Udj" firstAttribute="top" secondItem="jQh-Cu-CFx" secondAttribute="bottom" id="5Fa-YU-MBo"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="T2g-Lv-Udj" secondAttribute="bottom" id="Nul-9S-hif"/>
@@ -159,9 +159,20 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXy-6o-nAI">
                                 <rect key="frame" x="20" y="38" width="560" height="382"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0bv-BP-eBU">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="382"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0bv-BP-eBU" secondAttribute="trailing" id="1JR-bm-Z9C"/>
+                                    <constraint firstAttribute="bottom" secondItem="0bv-BP-eBU" secondAttribute="bottom" id="Fff-HY-9JB"/>
+                                    <constraint firstItem="0bv-BP-eBU" firstAttribute="top" secondItem="UXy-6o-nAI" secondAttribute="top" id="KVL-ul-ndq"/>
+                                    <constraint firstItem="0bv-BP-eBU" firstAttribute="leading" secondItem="UXy-6o-nAI" secondAttribute="leading" id="apa-Vm-Brd"/>
+                                </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="neK-9q-AmL">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="neK-9q-AmL">
                                 <rect key="frame" x="18" y="428" width="564" height="31"/>
                                 <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -210,6 +221,7 @@
                     <connections>
                         <outlet property="blueSlider" destination="dA0-dE-eUu" id="uQI-Nh-hHX"/>
                         <outlet property="blueTextField" destination="FGH-IL-tTv" id="xWg-iK-fDE"/>
+                        <outlet property="colorPreviewImageView" destination="0bv-BP-eBU" id="aa3-AN-d47"/>
                         <outlet property="colorPreviewView" destination="UXy-6o-nAI" id="95h-7Z-DEx"/>
                         <outlet property="greenSlider" destination="PPy-pl-9od" id="ZgF-QO-Dnn"/>
                         <outlet property="greenTextField" destination="PtP-6a-luh" id="ats-DL-v7p"/>
